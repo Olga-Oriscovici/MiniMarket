@@ -12,5 +12,10 @@ namespace MiniMarket.Data
         
 
         public DbSet<Product> products { get; set; }
+        public DbSet<Order>orders { get; set; }
+        public DbSet<Buyer> buyers { get; set; }
+        public DbSet<Seller> sellers { get; set; }
+
+
     }
 }

@@ -1,0 +1,44 @@
+﻿@model MiniMarket.Models.Buyer
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Регистрация покупателя</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="form-container">
+        <h1 class="mb-4 text-center">Привет, покупатель</h1>
+
+        <form asp-controller="Home" asp-action="CreateBuyer" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-bold"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label fw-bold"></label>
+                <input asp-for="Address" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Сохранить</button>
+        </form>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

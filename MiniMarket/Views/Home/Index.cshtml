@@ -1,0 +1,73 @@
+﻿@model MiniMarket.ViewModels.ProductPageModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>MiniMarket - Добро пожаловать</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .landing-container {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .landing-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .landing-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .landing-subtitle {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+        }
+
+        .landing-btn {
+            width: 200px;
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing-container">
+        <div class="landing-box">
+            <div class="landing-title">Добро пожаловать в MiniMarket</div>
+            <div class="landing-subtitle">
+                Здесь вы можете управлять своими товарами или заказами. Выберите, кто вы:
+            </div>
+
+            <div>
+                <form asp-controller="Home" asp-action="SelectRole" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="role" value="seller" />
+                    <button type="submit" class="btn btn-primary landing-btn">Я Продавец</button>
+                </form>
+
+                <form asp-controller="Home" asp-action="SelectRole" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="role" value="buyer" />
+                    <button type="submit" class="btn btn-success landing-btn">Я Покупатель</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
